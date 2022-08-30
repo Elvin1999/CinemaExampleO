@@ -1,0 +1,62 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="MainWindow" MaxHeight="1000" MaxWidth="1900"  MinHeight="450" MinWidth="800" SizeChanged="Window_SizeChanged"
+       
+        >
+    <!--<Window.Resources>
+        <ControlTemplate x:Key="ellipseBtn" TargetType="Button">
+            <Grid>
+                <Ellipse Name="ellipseBtn" Height="50" Width="200" >
+                    <Ellipse.Fill>
+                        <LinearGradientBrush>
+                            <GradientStop Color="#00bfff" Offset="0" ></GradientStop>
+                            <GradientStop Color="#00ff7f" Offset="1" ></GradientStop>
+                        </LinearGradientBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+                <ContentPresenter 
+                    HorizontalAlignment="Center" 
+                    VerticalAlignment="Center"
+                    Content="{Binding RelativeSource={RelativeSource TemplatedParent},Path=Content}">
+              
+                </ContentPresenter>
+                
+            </Grid>
+        </ControlTemplate>
+    </Window.Resources>-->
+    <Grid>
+        <!--<Button Name="btn" MouseEnter="Button_MouseEnter"  MouseLeave="Button_MouseLeave" Click="Button_Click" Template="{StaticResource ellipseBtn}" FontSize="40" >Hello </Button>-->
+
+
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel>
+            <Label Name="movieLabel" FontSize="26" HorizontalContentAlignment="Center" >Name of Movie</Label>
+            <Canvas MaxHeight="700" MaxWidth="1500" MinWidth="800" MinHeight="300" >
+                <Image Stretch="Fill" Name="movieImage2" MaxHeight="700" MaxWidth="1500" MinWidth="800" MinHeight="399" >
+                    <Image.Effect>
+                        <BlurEffect Radius="15" KernelType="Gaussian" ></BlurEffect>
+                    </Image.Effect>
+                </Image>
+                <Image Canvas.Left="250" Panel.ZIndex="10" Canvas.Top="20" Name="movieImage" MaxHeight="700" MaxWidth="1500" MinWidth="300" MinHeight="250" ></Image>
+            </Canvas>
+        </StackPanel>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBox BorderThickness="0" Background="Transparent" Name="movieTextBox" Foreground="Black" FontWeight="ExtraBlack" FontSize="26" Text="Name Of Movie" VerticalAlignment="Center" ></TextBox>
+            <Button Name="searchBtn" BorderThickness="0" Background="Transparent" Content="Search . . ." Grid.Column="1" FontWeight="ExtraBlack" FontSize="26" Click="Button_Click_1" ></Button>
+        </Grid>
+    </Grid>
+</Window>
